@@ -36,13 +36,14 @@ class GamePlayControllerUnitTest {
     @Test
     void startTest() {
         System.out.println("тест: startTest()...");
+        System.out.println(gamePlayController.start(new Player("1", "Vasya", "X")).getBody());
         assertEquals(HttpStatus.OK, gamePlayController.start(new Player("1", "Vasya", "X")).getStatusCode());
     }
 
-    @Test
-    void connectRandomTest() throws NotFoundException, InvalidGameException {
-        System.out.println("тест: connectRandomTest()...");
-        assertEquals(HttpStatus.OK, gamePlayController.connectRandom(new Player("2", "Petya", "O")).getStatusCode());
-    }
+//    @Test
+//    void connectRandomTest() throws NotFoundException, InvalidGameException {
+//        System.out.println("тест: connectRandomTest()...");
+//        assertEquals(HttpStatus.OK, gamePlayController.connectRandom(new Player("2", "Petya", "O")).getStatusCode());
+//    }
 
 }
