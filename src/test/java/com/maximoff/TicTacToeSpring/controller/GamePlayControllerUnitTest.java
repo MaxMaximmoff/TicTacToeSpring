@@ -30,7 +30,8 @@ class GamePlayControllerUnitTest {
         SimpMessagingTemplate simpMessagingTemplate = null;
         GameplayService gameplayService = Mockito.mock(GameplayService.class);
         when(gameplayService.createGame(new Player("1", "Vasya", "X"))).thenReturn(gameplay);
-        this.gamePlayController = new GamePlayController(gameplayService, simpMessagingTemplate);
+//        this.gamePlayController = new GamePlayController(gameplayService, simpMessagingTemplate);
+        this.gamePlayController = new GamePlayController(gameplayService);
     }
 
     @Test
@@ -40,10 +41,10 @@ class GamePlayControllerUnitTest {
         assertEquals(HttpStatus.OK, gamePlayController.start(new Player("1", "Vasya", "X")).getStatusCode());
     }
 
-//    @Test
-//    void connectRandomTest() throws NotFoundException, InvalidGameException {
-//        System.out.println("тест: connectRandomTest()...");
-//        assertEquals(HttpStatus.OK, gamePlayController.connectRandom(new Player("2", "Petya", "O")).getStatusCode());
-//    }
+    @Test
+    void connectRandomTest() throws NotFoundException, InvalidGameException {
+        System.out.println("тест: connectRandomTest()...");
+        assertEquals(HttpStatus.OK, gamePlayController.connectRandom(new Player("2", "Petya", "O")).getStatusCode());
+    }
 
 }
